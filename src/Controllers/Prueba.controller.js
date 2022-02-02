@@ -6,15 +6,14 @@ const form = require('../Models/form')
 const PruebaCtrl = {}
 
 PruebaCtrl.obtener = async (req, res) => {
-    const datos = await form.find();
-    res.send({datos})
+    res.send(await form.find({}))
 }
-
 
 PruebaCtrl.crear = async (req, res) => {
     const datos = form(req.body)
     datos.save()
     res.send('Todo Ok')
+    console.log(datos)
 }
 
 
