@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
@@ -9,7 +10,7 @@ require('./database')
 
 
 
-app.set('Port', 4000)
+app.set('Port', process.env.PORT || 4000)
 app.use(morgan('dev'))
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
